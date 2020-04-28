@@ -1,0 +1,9 @@
+section {
+  background: orange; 
+}
+
+h1 {
+  color: white;
+  padding-left: 5px;
+  font-family: 'Anton', sans-serif;
+}
