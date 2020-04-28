@@ -7,6 +7,7 @@
     <title>uHost</title>
     <link rel="shortcut icon" href="favicon.png">
     <!-- Font from google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <!-- selectors: what to style? -->
     <!-- Recommended way of using styles -->
@@ -20,11 +21,14 @@
     <main>
         <!-- inline CSS style (add style attribute in tag) is not recommended -->
         <!-- <section style="background: orange; padding: 3px"> -->
-        <section>
+
+        <!-- classes, unlike ids, can be used in multiple elements -->
+        <section id="product-overview">
             <h1>Get the freedom you deserve.</h1>
         </section>
-        <section>
-            <h1>Choose yor plan</h1>
+        <section id="plans">
+            <h1 class="section-title">Choose yor plan</h1>
+            <p>Make sure you get the best plan for your money</p>
         </section>
     </main>
 </body>

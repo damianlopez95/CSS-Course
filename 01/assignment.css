@@ -1,0 +1,39 @@
+/* Assignment 01: Selectors and Properties */
+
+/* #1 */
+#assignment-instructions {
+  color: aquamarine;
+  font-family: sans-serif;
+}
+
+/* #2 */
+code {
+  font-family: monospace;
+  color: red;
+}
+
+/* #3 #4 - Combinator */
+.ol-secondli code {
+  color: green;
+}
+
+/* #5 */
+body {
+  font-family: sans-serif;
+}
+
+li {
+  font-family: inherit;
+}
+
+/* #6 - Combinator */
+.ol-exceptli ~ li {
+  color: white;
+  background: black;
+}
+
+/* #7 - Combinator */
+ol li {
+  color: white;
+  background: black;
+}

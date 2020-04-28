@@ -1,9 +1,37 @@
-section {
-  background: orange; 
+/* Specifity: element -> class -> id -> inline */
+/* inline replace id attrs, id replace class attrs and class replace element attrs (if they match) */
+/* From specific to general approach */
+
+/* style inherited in all elements (low specificity) -> easily overriden */
+body {
+  font-family: 'Montserrat', sans-serif;
 }
 
+/* id */
+#product-overview {
+  background: orange;
+}
+
+/* id */
+/* #plans {
+  background: orange; 
+} */
+
+/* elements / tags */
 h1 {
   color: white;
   padding-left: 5px;
   font-family: 'Anton', sans-serif;
+}
+
+/* font prop works since class has higher priority than h1 tag */
+/* Descendant combinator */
+#product-overview h1 {
+  font-family: inherit;
+}
+
+/* class */
+.section-title {
+  color: #2ddf5c;
+  font-family: inherit;
 }
