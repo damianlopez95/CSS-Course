@@ -1,0 +1,40 @@
+/* IMPORTANT: don't use !important. It is a bad practice. */
+
+body {
+    font-family: sans-serif;
+}
+
+nav {
+    margin-bottom: 16px;
+    background: #fa923f;
+    padding: 8px 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+}
+
+/* combinator for a class in a specific a element */
+/* simply .active would be valid for all elements with active class */
+a.active {
+    color: black;
+}
+
+/* pseudo-class not() allows to define rules in all elements that */
+/* doesn't has selected class or id */
+a:not(.active) {
+    color: fuchsia;
+}
+
+.main-section {
+    height: 800px;
+    border: 1px solid #ccc;
+    /* border: 1px solid #ccc !important; */
+    padding: 16px;
+}
+
+.highlighted {
+    border: 2px solid #fa923f;
+}
