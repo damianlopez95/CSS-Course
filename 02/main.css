@@ -1,0 +1,135 @@
+/* Box Model: margin, border, padding and content */
+
+/* Margin collapsing: Use margin-top or margin-bottom */
+
+/* block level elements have a full width prop by default */
+
+/* display: none removes element from document (other element can occupy its place) 
+   VS. 
+   visibility: hidden only makes it invisible */
+
+/* inline block also have into account the whitespaces between elements (in HTML file) */
+
+/* Universal selector */
+* {
+    /* Using box-sizing (border-box) allows to include border and padding in */
+    /* width and height calculation. */
+    /* It is a good idea to do it in the universal selector so it can be */
+    /* applied in all elements. */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* remove default browser margin */
+    margin: 0;
+}
+
+#product-overview {
+    background: url("freedom.jpg");    
+    /* border: width color style (order doesn't matter) */
+    /* border: 5px black solid; */
+    padding: 20px;
+    /* width and height are for the content, it doesn't include the other box model elements  */
+    /* height use all the height space given by the parent element */
+    height: 600px;
+    width: 100%;
+}
+
+.section-title {
+    color: #2ddf5c;
+}
+
+#product-overview h1 {
+    color: white;
+    font-family: 'Anton', sans-serif;
+}
+
+/* h1 {
+    font-family: sans-serif;
+} */
+
+.main-header {
+    width: 100%;
+    /* padding: top-bottom left-right */
+    padding: 8px 16px;
+    background: #2ddf5c;
+}
+
+.main-header > div {
+    display: inline-block;
+}
+
+.main-header__brand {
+    color: #0e4f1f;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+    vertical-align: middle;
+}
+
+/* text-align center inline elements to selected position */
+.main-nav {
+    display: inline-block;
+    text-align: right;
+    width: calc(100% - 75px);
+    vertical-align: middle;
+}
+
+.main-nav__item {
+    /* block add box props */
+    display: inline-block;
+}
+
+.main-nav__items {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.main-nav__item a {
+    color: #0e4f1f;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 15px;
+    padding: 3px 0;
+}
+
+/* pseudo-classes */
+
+.main-nav__item a:hover,
+.main-nav__item a:active {
+    color: black;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+}
+
+/*  */
+
+.main-nav__item--cta a {
+    color: black;
+    background: aliceblue;
+    padding: 6px 12px;
+    border-radius: 7px;
+}
+
+.main-nav__item--cta a:hover,
+.main-nav__item--cta a:active {
+    color: aliceblue;
+    background: black;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+}
+/* pseudo-elements */
+
+/* .main-nav__item a::after {
+    content: "  (Link)";
+    color: white;
+}
+
+p::first-letter {
+    color: #0e4f1f;
+    font-size: 20px;
+} */
+
+/*  */

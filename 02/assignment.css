@@ -1,0 +1,28 @@
+html, body {
+  height: 100%;
+}
+
+.box {
+  /* top - right - bottom - left */
+  border: 3px black solid;
+  margin: 20px 21px 22px 23px;
+  padding: 5px 10px 15px 20px;
+  display: inline-block;
+}
+
+.first-box {
+  /* height: 100%;
+  box-sizing: border-box; */
+  height: 300px;
+  width: 50%;
+  visibility: hidden;
+  /* display: none; */
+}
+
+/* div ~ div:hover {
+  background: fuchsia;
+} */
+
+div:last-of-type:hover {
+  background: fuchsia;
+}
