@@ -27,3 +27,17 @@ body {
     border: 5px solid black;
     margin: 10px;
 }
+
+/* Navigation bar FIXED in screen: */
+/* fixed elements are inline and stays always in the same position. */
+/* fixed elements are relative to the viewport, so positioning (top, left, ...) refers to that. */
+.parent .child-1 {
+  position: fixed;
+  margin: 0;
+  /* positioning in the top-left corner of the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* the nav width should include its borders */
+  box-sizing: border-box;
+}
