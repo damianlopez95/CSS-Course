@@ -21,6 +21,11 @@ body {
     width: 100%;
     box-sizing: border-box;
     /* Default value of z-index is 0 */
+    
+    /* incrementing the z-index allow us to position the nav bar over all elements */
+    /* with lesser values of z-index (backbround-image, packages, ...) */
+    /* it's a fix for relative position */
+    z-index: 1;
 }
 
 .main-header > div {
