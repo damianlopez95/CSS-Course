@@ -8,9 +8,18 @@ body {
 }
 
 .main-header {
-    width: 100%;
     background: #2ddf5c;
     padding: 8px 16px;
+
+    /* set header to fixed pos */
+
+    position: fixed;
+    /* top and left are necessary if html or body have a margin */
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .main-header > div {
