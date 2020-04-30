@@ -26,6 +26,12 @@ main {
     /* elements with a relative position are relative to themselves, so if they're moved */
     /* then they move (top, right, ..) in relation to it's originnal position */
     position: relative;
+
+    /* Assignment #7 */
+    /* Given that the badge now has a z-index of 10, the superior of the page, */
+    /* it's parent should have a z-index of 0 so it never appears over the header. */
+    /* This way the childrens of the package can't appear over or below other elements */
+    z-index: 0;
 }
 
 .package:hover,
@@ -58,6 +64,9 @@ main {
     padding: 12px;
     border-radius: 2px;
     
+    /* Assignment #6 */
+    /* Badge over the header... */
+    z-index: 10;
 }
 
 .package__subtitle {
