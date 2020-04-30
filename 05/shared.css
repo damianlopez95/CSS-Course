@@ -20,6 +20,7 @@ body {
     margin-top: 0;
     width: 100%;
     box-sizing: border-box;
+    /* Default value of z-index is 0 */
 }
 
 .main-header > div {
