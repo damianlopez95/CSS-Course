@@ -1,0 +1,22 @@
+Module: Sizes and Units
+
+- For fixed elements, the % value for width and height is in relation to the containing block.
+So if the element is fixed, the cont. block is the viewport. 100% for the width of the element will be occupy
+the total width of the viewport.
+
+-> Fixed element: CBlock: Viewport
+
+- For absolute elements, the % value for the props will be the content + padding of the relative ancestor.
+The CBlock for the absolute element, is the closest ancestor with a non-static position.
+
+-> Absolute element: CBlock: closest ancestor with non-static position
+
+- For static/relative elements, the % value for dimensions references to the closest ancestor
+that is a container block.
+
+->Static/Relative element: CBlock: closest block ancestor
+
+- It can be good to use a dynamic unit like rem in text-size, margin and padding to keep proportions.
+  We need to consider what is the default value in the browser (in absolute px units)
+
+- margin: auto is a way of center the content of a block element
