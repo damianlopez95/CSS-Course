@@ -67,12 +67,12 @@
     /* background-image: radial-gradient(ellipse at bottom, black 10%, rgb(129, 31, 31)); */
     box-sizing: border-box;
     width: 100vw;
-    height: 70vh;
+    height: 60vh;
     padding: 0.6rem;
     filter: blur(0.5px);
 
     /* Assignment #1 */
-    margin-top: 2.2rem;
+    /* margin-top: 3.5rem; */
 
     /* Assignment #2-#3 */
     /* New positioning context: product-overview */
@@ -84,6 +84,7 @@
 .product-overview--title {
     margin: 0;
     position: absolute;
+    font-size: 1.5rem;
     /* left: 20px;
     bottom: 20px; */
 
@@ -103,7 +104,7 @@
 }
 
 .plan__list {
-    width: 80%;
+    width: 100%;
     margin: auto;
     text-align: center;
 }
@@ -112,10 +113,10 @@
     background: #d5ffdc;
     text-align: center;
     padding: 1rem;
-    margin: 0.5rem;
-    display: inline-block;
-    width: 30%;
-    vertical-align: middle;
+    display: block;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 1rem;
 }
 
 .plan--highlighted {
@@ -177,9 +178,8 @@
 }
 
 .key-feature {
-    display: inline-block;
-    width: 30%;
-    vertical-align: top;
+    display: block;
+    width: 100%;
 }
 
 .key-feature__image {
@@ -203,3 +203,52 @@
     font-family: sans-serif;
 } */
 
+/* media queries for responive design */
+/* min-width: condition that says while the actual width is equal or higher that the defined  */
+/* min-width (40rem), apply the following rules. */
+@media (min-width: 40rem) and (min-height: 40rem) {
+    #product-overview {
+        height: 55vh;
+    }
+    .product-overview--title {
+        font-size: 2.4rem;
+    }
+}
+
+/* comma (,) = || */
+@media (min-width: 40rem) {
+    .plan {
+        width: 25%;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        min-width: 12.5rem;
+        max-width: 23rem;
+    }
+    .key-feature {
+        display: inline-block;
+        width: 30%;
+        vertical-align: top;
+        max-width: 23rem;
+    }
+    .plan__list {
+        font-size: 0.85rem;
+    }
+}
+
+@media (min-width: 60rem) {
+    .plan__list {
+        font-size: 1rem;
+    }
+}
+
+/* the order is important */
+/* @media (min-width: 60rem) {
+    #product-overview {
+        height: 70vh;
+    }
+
+    .product-overview--title {
+        font-size: 2.5rem;
+    }
+} */

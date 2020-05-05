@@ -5,7 +5,6 @@
   /* We can and should use em/rem as units for dynamic text size */
   /* font-size: 20px; */
   font-size: 1.2rem;
-  margin: 3rem 0;
   text-align: center;
 }
 
@@ -20,11 +19,9 @@
 
 /* vertical-align has to be in both containers that needs to be aligned */
 .testimonial__image-container {
-  display: inline-block;
-  width: 65%;
+  width: 100%;
   /* We can define absolute max/min dimensions */
   max-width: 720px;
-  vertical-align: middle;
   box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -34,11 +31,9 @@
 }
 
 .testimonial__info {
-  text-align: right;
+  text-align: middle;
   padding: 0.9rem;
-  display: inline-block;
-  vertical-align: middle;
-  width: 30%;
+  width: 100%;
 }
 
 /* #customer-2.testimonial {
@@ -73,4 +68,30 @@
 
 .testimonial__text {
   margin: 0.2rem;
+}
+
+@media (min-width: 40rem) {
+  .testimonial {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  /* vertical-align has to be in both containers that needs to be aligned */
+  .testimonial__image-container {
+    display: inline-block;
+    width: 65%;
+    /* We can define absolute max/min dimensions */
+    max-width: 720px;
+    vertical-align: middle;
+    box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .testimonial__info {
+    text-align: right;
+    padding: 0.9rem;
+    display: inline-block;
+    vertical-align: middle;
+    width: 30%;
+  }
 }
