@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    font-size: 1.5rem;
+}
+
+html {
+    background: #b3b3b3;
+    padding: 5px;
+}
+
+body {
+    background: #b3b3b3;
+    padding: 5px;
+    margin: 0;
+}
+
+/* making a container as flex, automatically all his children become flex items */
+.flex-container {
+    background: white;
+    padding: 10px;
+    height: 800px;
+    border: 5px solid black;
+
+    /* flex container */
+    display: flex;
+    /* direction: row (x) or column (y) */
+    flex-direction: row;
+    /* wrap is a prop that defines if the items should be displaced to another  */
+    /* column/row when there is not enough size for them in the current place */
+    flex-wrap: wrap;
+    /* shorthand: */
+    /* flex-flow: direction wrap; */
+    /* center items along the main axis (x for row, y for column) */
+    justify-content: flex-start;
+    /* center items along the cross axis (x for column, y for row) */
+    align-items: center;
+    /* display elements layout along the cross axis */
+    align-content: space-between;
+}
+
+.item-1 {
+    background: #ff7300;
+    color: white;
+    padding: 10px;
+    border: 5px solid black;
+    margin: 10px;
+
+    /* order: prop that sets the position of the element in the flex container */
+    /* 0 by default, order increase to the right (no-reverse) so that elements with a lesser value are */
+    /* in the beggining of the container. */
+    order: 1;
+}
+
+.item-2 {
+    background: #ff9640;
+    color: white;
+    padding: 10px;
+    border: 5px solid black;
+    margin: 10px;
+    width: 250px;
+    font-size: 1.8rem;
+
+    /* align-self: position the element in the specified direction on th cross-axis of the flex container */
+    align-self: flex-start;
+}
+
+.item-3 {
+    background: #ff9640;
+    color: white;
+    padding: 10px;
+    border: 5px solid black;
+    margin: 10px;
+    height: 250px;
+
+    /* flex-grow: prop that allows to take unused space in the flex container and increase the size  */
+    /* of the element */
+    /* the value is a proportiom between all elements using the prop (like flex) */
+    flex-grow: 1;
+}
+
+.item-4 {
+    background: #f5c096;
+    color: white;
+    padding: 10px;
+    border: 5px solid black;
+    margin: 10px;
+    width: 300px;
+    height: 300px;
+}
+
+.item-5 {
+    background: #e71709;
+    color: white;
+    padding: 10px;
+    border: 5px solid black;
+    margin: 10px;
+    width: 350px;
+
+    /* flex-shrink: prop that allows to define if an element can decrease it's original size. */
+    flex-shrink: 0;
+}
+
+.item-6 {
+    background: #d3c0b1;
+    color: white;
+    padding: 10px;
+    border: 5px solid black;
+    margin: 10px;
+    width: 350px;
+    order: -1;
+
+    /* flex-basis: is a prop that allows to set the width or height of an element, depending */
+    /* on the main-axis (width -> row; height -> column) */
+    flex-basis: 500px;
+}
