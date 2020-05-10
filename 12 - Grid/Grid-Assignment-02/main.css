@@ -1,0 +1,90 @@
+* {
+  font-family: sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.container {
+  background: #ccc;
+  border: 1px solid black;
+  padding: 0.3rem;
+  min-width: 20rem;
+  width: 90%;
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(5, 19%);
+  grid-template-rows: repeat(5, 19%);
+  /* dynamic grid */
+  /* auto-fill & auto-fit adds or removes columns/rows if needed for responive design */
+  /* grid-template-columns: repeat(auto-fit, 25%);
+  grid-template-rows: repeat(auto-fit, 24%); */
+  grid-template-areas: "header header header header header"
+                       "sidebar main-content main-content main-content main-content"
+                       "sidebar main-content main-content main-content main-content"
+                       "sidebar main-content main-content main-content main-content"
+                       "footer footer footer footer footer";
+  /* position each element in the cell */
+  justify-items: auto;
+  align-items: stretch;
+  /* position grid in the container */
+  justify-content: center;
+  align-content: center;
+  /* responsive rows and columns size */
+  grid-auto-rows: minmax(6rem, auto);
+  grid-auto-columns: minmax(5rem, auto);
+}
+
+.container div {
+  background: rgb(66, 65, 65);
+  color: #ccc;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  margin-bottom: 1rem;
+  grid-area: header;
+}
+
+.sidebar {
+  margin-right: 1rem;
+  grid-area: sidebar;
+}
+
+.main-content {
+  grid-area: main-content;
+}
+
+.footer {
+  margin-top: 1rem;
+  grid-area: footer;
+  /* justify element individually */
+  justify-self: stretch;
+}
+
+@media (max-width: 40rem) {
+  .container {
+    grid-template-columns: repeat(4, 24%);
+    grid-template-rows: repeat(4, 24%);
+    grid-template-areas: "header header header header"
+                         "sidebar sidebar sidebar sidebar"
+                         "main-content main-content main-content main-content"
+                         "footer footer footer footer";
+  }
+
+  .header, .sidebar, .main-content, .footer { 
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+}
