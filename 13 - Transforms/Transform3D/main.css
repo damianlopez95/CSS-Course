@@ -1,0 +1,38 @@
+.container {
+    position: relative;
+    margin: 150px auto;
+    width: 200px;
+    height: 200px;
+    background: rgba(0,0,0,0);
+
+    perspective: 1000px;
+    perspective-origin: 500px;
+    /* preserve the 3d style of its children */
+    transform-style: preserve-3d;
+}
+
+.box-1 {
+    position: absolute;
+    margin: 1rem;
+    background: red;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+
+    transform: rotateX(180deg) rotateY(150deg);
+}
+
+.box-2 {
+    position: absolute;
+    margin: 1rem;
+    background: blue;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+
+    transform: rotateX(20deg) translateZ(9rem);
+}

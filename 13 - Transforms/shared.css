@@ -1,0 +1,295 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    /* fix to the scrollbar using vw unit */
+    overflow-x: hidden;
+    /* we can override the default value of the browser */
+    font-size: 100%;
+    height: 100%;
+
+    display: grid;
+    /* with rows values define height */
+    /* header: 3.5rem, main: auto (dynamic), footer: fit-content for responsive design */
+    grid-template-rows: 3.5rem auto fit-content(8rem);
+    grid-template-areas: "header"
+                         "main"
+                         "footer";
+}
+
+main {
+    /* formula to make the footer stay below the main container */
+    /* 3.5rem -> space needed by the nav */
+    /* 8rem -> space needed by the footer plus margin */
+    /* min-height: calc(100vh - 3.5rem - 8rem); */
+    /* margin-top: 3.5rem; */
+    grid-area: main;
+}
+
+/* we can use classes to add and/or remove styles with JS */
+
+.open {
+    display: block;
+}
+  
+.close {
+    display: none;
+}
+  
+/*  */
+
+.backdrop {
+    /* width: 100%;
+    height: 100%; */
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    /* display: none; */
+}  
+
+.main-header {
+    background: #2ddf5c;
+    padding: 0.5rem 1rem;
+
+    /* set header to fixed pos */
+
+    position: fixed;
+    /* top and left are necessary if html or body have a margin */
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    /* Default value of z-index is 0 */
+    
+    /* incrementing the z-index allow us to position the nav bar over all elements */
+    /* with lesser values of z-index (backbround-image, packages, ...) */
+    /* it's a fix for relative position */
+    z-index: 2;
+
+    /* flex element */
+    display: flex;
+    /* flex-flow: row nowrap; */
+    justify-content: space-between;
+    align-items: center;
+
+    grid-area: header;
+}
+
+.main-header__btnsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .main-header > div {
+    display: inline-block;
+    vertical-align: middle;
+} */
+
+.toggle-button {
+    width: 2.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 0;
+    padding-bottom: 0;
+    vertical-align: middle;
+}
+  
+.toggle-button:focus {
+    outline: none;
+}
+  
+.toggle-button__bar {
+    width: 100%;
+    height: 0.2rem;
+    background: black;
+    display: block;
+    margin: 0.6rem 0;
+}
+
+/* .main-header__brand {
+    display: inline-block;
+    vertical-align: middle;
+    height: 2.5rem;
+} */
+
+/* the width and height should be defined in the image, not in the container */
+/* Using % values works in a block element, not inline */
+.main-header__brand img {
+    height: 2.5rem;
+    vertical-align: middle;
+}
+
+.main-nav {
+    display: none;
+}
+
+.main-nav__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.main-nav__item {
+    /* display: inline-block; */
+    margin: 0 1rem;
+}
+
+.main-nav__item a,
+.mobile-nav__item a {
+    text-decoration: none;
+    color: #0e4f1f;
+    font-weight: bold;
+    padding: 0.2rem 0;
+}
+
+.main-nav__item a:hover,
+.main-nav__item a:active {
+    color: white;
+    border-bottom: 5px solid white;
+}
+
+.main-nav__item--cta a,
+.mobile-nav__item--cta a {
+    color: white;
+    background: #ff1b68;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.main-nav__item--cta a:hover,
+.main-nav__item--cta a:active,
+.mobile-nav__item--cta a:hover,
+.mobile-nav__item--cta a:active {
+    color: #ff1b68;
+    background: white;
+    border: none;
+}
+
+.mobile-nav {
+    /* display: none; */
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 80%;
+    height: 100vh;
+}
+  
+  .mobile-nav__items {
+    /* width: 90%; */
+    height: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .mobile-nav__item {
+    margin: 1rem 0;
+  }
+  
+  .mobile-nav__item a {
+    font-size: 1.5rem;
+  }
+
+.main-footer {
+    background: black;
+    padding: 2rem;
+    margin-top: 3rem;
+    width: 100%;
+
+    grid-area: footer;
+}
+
+.main-footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* text-align: center; */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-footer__link {
+    margin: 1rem;
+}
+
+.main-footer__link a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-footer__link a:hover,
+.main-footer__link a:active {
+    color: #ccc;
+}
+
+.button {
+    background: #0e4f1f;
+    color: white;
+    font: inherit;
+    border: 1.5px solid #0e4f1f;
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover,
+.button:active {
+    background: white;
+    color: #0e4f1f;
+}
+
+.button:focus {
+    outline: none;
+}
+
+@media (min-width: 40rem) {
+    .main-header__btnsContainer {
+        width: auto;
+        display: block;
+    }
+
+    .toggle-button {
+        display: none;
+    }
+
+    .main-nav {
+        display: flex;
+        vertical-align: middle;
+    }
+
+    .main-footer__links {
+        flex-flow: row nowrap;
+    }
+
+    .main-footer__link {
+        margin: 0 1rem;
+    }
+}
