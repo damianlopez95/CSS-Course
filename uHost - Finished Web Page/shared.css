@@ -1,0 +1,414 @@
+:root {
+    /* Global colors */
+    --dark-green: #0e4f1f;
+    --light-green: #2ddf5c;
+    --mid-green: #19b84c;
+    --highlight-color: #ff1b68;
+    --red: red;
+    --light-pink: #ffcede;
+    --pink: #ff5454;
+    --black: black;
+    --white: white;
+    --light-gray: #ccc;
+    --dark-gray: #424242;
+    --mid-gray: #858585;
+    --green-gray: #d5ffdc;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+@supports (display: grid) {
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        /* fix to the scrollbar using vw unit */
+        overflow-x: hidden;
+        /* we can override the default value of the browser */
+        font-size: 100%;
+        height: 100%;
+    
+        display: -ms-grid;
+    
+        display: grid;
+        /* with rows values define height */
+        /* header: 3.5rem, main: auto (dynamic), footer: fit-content for responsive design */
+        -ms-grid-rows: 3.5rem auto fit-content(8rem);
+        grid-template-rows: 3.5rem auto fit-content(8rem);
+            grid-template-areas: "header"
+                             "main"
+                             "footer";
+    }
+
+    main {
+        -ms-grid-row: 2;
+        -ms-grid-column: 1;
+        /* formula to make the footer stay below the main container */
+        /* 3.5rem -> space needed by the nav */
+        /* 8rem -> space needed by the footer plus margin */
+        /* min-height: calc(100vh - 3.5rem - 8rem); */
+        /* margin-top: 3.5rem; */
+        grid-area: main;
+    }
+}
+
+/* we can use classes to add and/or remove styles with JS */
+.open {
+    /* initial/final values of props in transition */
+    display: block !important;
+    opacity: 1 !important;
+    -webkit-transform: translateX(0) translateY(0) !important;
+        -ms-transform: translateX(0) translateY(0) !important;
+            transform: translateX(0) translateY(0) !important;
+}
+
+.backdrop {
+    /* width: 100%;
+    height: 100%; */
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    display: none;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+}  
+
+.main-header {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    background: var(--light-green);
+    padding: 0.5rem 1rem;
+
+    /* set header to fixed pos */
+
+    position: fixed;
+    /* top and left are necessary if html or body have a margin */
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    /* Default value of z-index is 0 */
+    
+    /* incrementing the z-index allow us to position the nav bar over all elements */
+    /* with lesser values of z-index (backbround-image, packages, ...) */
+    /* it's a fix for relative position */
+    z-index: 2;
+
+    /* flex element */
+    /* Vendor prefixes for compatibility with older versions of navigators */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /* flex-flow: row nowrap; */
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+
+    grid-area: header;
+}
+
+.main-header__btnsContainer {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+/* .main-header > div {
+    display: inline-block;
+    vertical-align: middle;
+} */
+
+.toggle-button {
+    width: 2.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 0;
+    padding-bottom: 0;
+    vertical-align: middle;
+}
+  
+.toggle-button:focus {
+    outline: none;
+}
+  
+.toggle-button__bar {
+    width: 100%;
+    height: 0.2rem;
+    background: var(--black);
+    display: block;
+    margin: 0.6rem 0;
+}
+
+/* .main-header__brand {
+    display: inline-block;
+    vertical-align: middle;
+    height: 2.5rem;
+} */
+
+/* the width and height should be defined in the image, not in the container */
+/* Using % values works in a block element, not inline */
+.main-header__brand img {
+    height: 2.5rem;
+    vertical-align: middle;
+}
+
+.main-nav {
+    display: none;
+}
+
+.main-nav__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.main-nav__item {
+    /* display: inline-block; */
+    margin: 0 1rem;
+}
+
+.main-nav__item--cta {
+    /* Animation: we use the defined keyframe */
+    /* animation: keyframe duration delay repeat direction */
+    /* animation: NAME DURATION DELAY TIMING-FUNCTION ITERATION DIRECTION FILL-MODE PLAY-STATE; */
+    /* 'forward' keep the last state of the transition */
+    -webkit-animation: wiggle 0.2s 3s 8 ease-out none;
+            animation: wiggle 0.2s 3s 8 ease-out none;
+}
+
+.main-nav__item a,
+.mobile-nav__item a {
+    text-decoration: none;
+    color: var(--dark-green);
+    font-weight: bold;
+    padding: 0.2rem 0;
+}
+
+.main-nav__item a:hover,
+.main-nav__item a:active {
+    color: var(--white);
+    border-bottom: 5px solid var(--white);
+}
+
+.main-nav__item--cta a,
+.mobile-nav__item--cta a {
+    color: var(--white);
+    background: var(--highlight-color);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.main-nav__item--cta a:hover,
+.main-nav__item--cta a:active,
+.mobile-nav__item--cta a:hover,
+.mobile-nav__item--cta a:active {
+    color: var(--highlight-color);
+    background: var(--white);
+    border: none;
+}
+
+.mobile-nav {
+    /* display: none; */
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    background: var(--white);
+    width: 80%;
+    height: 100vh;
+    display: none;
+
+    -webkit-transform: translateX(-40rem);
+
+        -ms-transform: translateX(-40rem);
+
+            transform: translateX(-40rem);
+    -webkit-transition: -webkit-transform 0.2s linear;
+    transition: -webkit-transform 0.2s linear;
+    -o-transition: transform 0.2s linear;
+    transition: transform 0.2s linear;
+    transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+}
+ 
+.mobile-nav__items {
+    /* width: 90%; */
+    height: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+  
+  .mobile-nav__item {
+    margin: 1rem 0;
+  }
+  
+  .mobile-nav__item a {
+    font-size: 1.5rem;
+  }
+
+.main-footer {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    background: var(--black);
+    padding: 2rem;
+    margin-top: 3rem;
+    width: 100%;
+
+    grid-area: footer;
+}
+
+.main-footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* text-align: center; */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.main-footer__link {
+    margin: 1rem;
+}
+
+.main-footer__link a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.main-footer__link a:hover,
+.main-footer__link a:active {
+    color: var(--light-gray);
+}
+
+.button {
+    background: var(--dark-green);
+    color: var(--white);
+    font: inherit;
+    border: 1.5px solid var(--dark-green);
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover,
+.button:active {
+    background: var(--white);
+    color: var(--dark-green);
+}
+
+.button:focus {
+    outline: none;
+}
+
+@media (min-width: 40rem) {
+    .main-header__btnsContainer {
+        width: auto;
+        display: block;
+    }
+
+    .toggle-button {
+        display: none;
+    }
+
+    .main-nav {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        vertical-align: middle;
+    }
+
+    .main-footer__links {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-flow: row nowrap;
+                flex-flow: row nowrap;
+    }
+
+    .main-footer__link {
+        margin: 0 1rem;
+    }
+}
+
+/* Animations: start and end point */
+@-webkit-keyframes wiggle {
+  0% {
+    -webkit-transform: rotateZ(0);
+            transform: rotateZ(0);
+  }
+  50% {
+    -webkit-transform: rotateZ(-8deg);
+            transform: rotateZ(-8deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(8deg);
+            transform: rotateZ(8deg);
+  }
+}
+@keyframes wiggle {
+  0% {
+    -webkit-transform: rotateZ(0);
+            transform: rotateZ(0);
+  }
+  50% {
+    -webkit-transform: rotateZ(-8deg);
+            transform: rotateZ(-8deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(8deg);
+            transform: rotateZ(8deg);
+  }
+}
