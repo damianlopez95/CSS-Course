@@ -1,0 +1,195 @@
+/* rem is calculated as a multiplication of the default value for text */
+/* so if the default value is 16px, 1rem = 16px, 3rem = 48px, ... */
+
+.testimonial {
+  /* We can and should use em/rem as units for dynamic text size */
+  /* font-size: 20px; */
+  font-size: 1.2rem;
+  text-align: center;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.testimonial__list {
+  width: 80%;
+  margin: auto;
+}
+
+.testimonial:first-of-type {
+  margin-top: 6rem; /* 6rem = 96px (if default value in browser for text is 16px) */
+}
+
+/* vertical-align has to be in both containers that needs to be aligned */
+.testimonial__image-container {
+  width: 85%;
+  /* We can define absolute max/min dimensions */
+  max-width: 720px;
+  -webkit-box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
+
+  overflow: hidden;
+  -webkit-transform: skew(20deg);
+      -ms-transform: skew(20deg);
+          transform: skew(20deg);
+}
+
+@media (max-width: 40rem) {
+  .testimonial__image-container {
+    max-width: 20rem;
+  }
+}
+
+.testimonial__image {
+  width: 100%;
+  vertical-align: bottom;
+
+  /* transforming the image */
+  -webkit-transform: skew(-20deg) scale(1.3);
+      -ms-transform: skew(-20deg) scale(1.3);
+          transform: skew(-20deg) scale(1.3);
+}
+
+.testimonial__image:hover {
+  -webkit-animation: flipImage 0.4s linear forwards;
+          animation: flipImage 0.4s linear forwards;
+}
+
+.testimonial__info {
+  text-align: middle;
+  padding: 0.9rem;
+  width: 100%;
+  height: 100%;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* #customer-2.testimonial {
+  text-align: right;
+}
+
+#customer-2 .testimonial__info {
+  text-align: left;
+} */
+
+.testimonial__name {
+  margin: 0.2rem;
+  color: var(--pink);
+  font-size: 2rem;
+}
+
+.testimonial__subtitle {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--light-gray);
+}
+
+.testimonial__subtitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.testimonial__subtitle a:hover,
+.testimonial__subtitle a:active {
+  color: var(--mid-gray);
+}
+
+.testimonial__text {
+  margin: 0.2rem;
+}
+
+@media (min-width: 40rem) {
+  .testimonial {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 3rem 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+  }
+
+  /* vertical-align has to be in both containers that needs to be aligned */
+  .testimonial__image-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 65%;
+    /* We can define absolute max/min dimensions */
+    max-width: 720px;
+    vertical-align: middle;
+    -webkit-box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
+            box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .testimonial__info {
+    /* text-align: right; */
+    padding: 0.9rem;
+    vertical-align: middle;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    width: 30%;
+    height: 18rem;
+  }
+}
+
+@-webkit-keyframes flipImage {
+  0% {
+    -webkit-transform: rotateY(0) skew(20deg) scale(1.3);
+            transform: rotateY(0) skew(20deg) scale(1.3);
+  }
+  50% {
+    -webkit-transform: rotateY(90deg) skew(20deg) scale(1.5);
+            transform: rotateY(90deg) skew(20deg) scale(1.5);
+  }
+  100% {
+    -webkit-transform: rotateY(180deg) skew(20deg) scale(1.3);
+            transform: rotateY(180deg) skew(20deg) scale(1.3);
+  }
+}
+
+@keyframes flipImage {
+  0% {
+    -webkit-transform: rotateY(0) skew(20deg) scale(1.3);
+            transform: rotateY(0) skew(20deg) scale(1.3);
+  }
+  50% {
+    -webkit-transform: rotateY(90deg) skew(20deg) scale(1.5);
+            transform: rotateY(90deg) skew(20deg) scale(1.5);
+  }
+  100% {
+    -webkit-transform: rotateY(180deg) skew(20deg) scale(1.3);
+            transform: rotateY(180deg) skew(20deg) scale(1.3);
+  }
+}
